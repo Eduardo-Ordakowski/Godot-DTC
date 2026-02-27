@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Ville\\Desktop\\Trabalhos\\Programa\u00E7\u00E3o\\Aulas\\Dev Game\\dodge-the-creeps-c#\\",
+  "WorkspaceRootPath": "C:\\Users\\NTI\\source\\Godot-DTC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|c:\\users\\ville\\desktop\\trabalhos\\programa\u00E7\u00E3o\\aulas\\dev game\\dodge-the-creeps-c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|c:\\users\\nti\\source\\godot-dtc\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,43 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Ville\\Desktop\\Trabalhos\\Programa\u00E7\u00E3o\\Aulas\\Dev Game\\dodge-the-creeps-c#\\Player.cs",
-              "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\Users\\Ville\\Desktop\\Trabalhos\\Programa\u00E7\u00E3o\\Aulas\\Dev Game\\dodge-the-creeps-c#\\Player.cs",
-              "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA0AAAACAAAAAAAAAA==",
+              "Title": "Mob.cs",
+              "DocumentMoniker": "C:\\Users\\NTI\\source\\Godot-DTC\\Mob.cs",
+              "RelativeDocumentMoniker": "Mob.cs",
+              "ToolTip": "C:\\Users\\NTI\\source\\Godot-DTC\\Mob.cs",
+              "RelativeToolTip": "Mob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T20:38:04.621Z",
+              "WhenOpened": "2026-02-26T22:34:44.437Z",
               "EditorCaption": ""
             }
           ]

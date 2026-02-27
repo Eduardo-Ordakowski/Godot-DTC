@@ -11,7 +11,7 @@ public partial class Main : Node
     private int _score;
     public override void _Ready()
 	{
-		NewGame();
+		GetNode<Area2D>("Player").Hide();
 	}
 
 	public override void _Process(double delta)
@@ -23,7 +23,10 @@ public partial class Main : Node
 		//Game over para os timers de mobs e pontuação;
 		GetNode<Timer>("MobTimer").Stop(); 
 		GetNode<Timer>("ScoreTimer").Stop();
+		GetNode<Hud>("HUD").ShowGameOver();
 
+		GetNode<AudioStreamPlayer2D>("Music").Stop();
+		GetNode<AudioStreamPlayer2D>("DeathSound").Play();
     }
 
 	public void NewGame()
@@ -36,12 +39,21 @@ public partial class Main : Node
 		player.Start(startPosition.Position);
 
 		GetNode<Timer>("StartTimer").Start();
-	}
+
+		var hud = GetNode<Hud>("HUD");
+		hud.UpdateScore(_score);
+		hud.ShowMessage("Se ligue!");
+
+		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
+		GetNode<AudioStreamPlayer2D>("Music").Play();
+
+    }
 
 	private void OnScoreTimerTimeout()
 	{
         //Incrementa a pontuação a cada vez que o timer de pontuação atinge o tempo limite usando _score++;
         _score++;
+		GetNode<Hud>("HUD").UpdateScore(_score);
 	}
 
 	private void OnStartTimerTimeout()

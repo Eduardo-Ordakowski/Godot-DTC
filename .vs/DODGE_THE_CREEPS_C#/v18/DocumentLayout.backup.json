@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\NTI\\source\\Godot-DTC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|c:\\users\\nti\\source\\godot-dtc\\hud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|solutionrelative:hud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|c:\\users\\nti\\source\\godot-dtc\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1ED5459-A12D-4185-82C7-613849DDF337}|dodge_the_creeps_C#.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Hud.cs",
+              "DocumentMoniker": "C:\\Users\\NTI\\source\\Godot-DTC\\Hud.cs",
+              "RelativeDocumentMoniker": "Hud.cs",
+              "ToolTip": "C:\\Users\\NTI\\source\\Godot-DTC\\Hud.cs",
+              "RelativeToolTip": "Hud.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T23:37:53.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Mob.cs",
               "DocumentMoniker": "C:\\Users\\NTI\\source\\Godot-DTC\\Mob.cs",
               "RelativeDocumentMoniker": "Mob.cs",

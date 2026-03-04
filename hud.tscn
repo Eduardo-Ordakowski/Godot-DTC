@@ -9,8 +9,19 @@ action = &"start_game"
 [sub_resource type="Shortcut" id="Shortcut_8sq4i"]
 events = [SubResource("InputEventAction_64ctp")]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.6, 0.24705882, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+bg_color = Color(0, 0.6117647, 0, 1)
+
 [node name="HUD" type="CanvasLayer" unique_id=763648476]
 script = ExtResource("1_64ctp")
+metadata/_edit_horizontal_guides_ = [59.0]
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=800784050]
 offset_right = 479.0
@@ -58,6 +69,41 @@ text = "Start"
 [node name="MessageTimer" type="Timer" parent="." unique_id=642139882]
 wait_time = 2.0
 one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=272026251]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
+max_value = 3.0
+step = 1.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="." unique_id=492626010]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.5
+offset_top = -36.0
+offset_right = 100.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="OnMessageTimerTimeout"]

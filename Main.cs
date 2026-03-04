@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Reflection.PortableExecutable;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.JavaScript;
 
 public partial class Main : Node
@@ -33,17 +34,21 @@ public partial class Main : Node
 	{
         //NewGame inicia a pontuação, reseta a posição do player e inicia o timer de início do jogo;
         _score = 0;
-
-		var player = GetNode<Player>("Player");
+		
+        var player = GetNode<Player>("Player");
 		var startPosition = GetNode<Marker2D>("StartPosition");
 		player.Start(startPosition.Position);
 
 		GetNode<Timer>("StartTimer").Start();
 
 		var hud = GetNode<Hud>("HUD");
-		hud.UpdateScore(_score);
-		hud.ShowMessage("Se ligue!");
 
+		hud.UpdateScore(_score);
+		
+		hud.ShowMessage("Se ligue!");
+		
+		hud.UpdateHealth(player.CurrentPlayerHealth, player.MaxPlayerHealth);
+        
 		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
 		GetNode<AudioStreamPlayer2D>("Music").Play();
 
@@ -86,4 +91,9 @@ public partial class Main : Node
 
 		AddChild(mob); //Adiciona o mob à cena;
     }
+
+	private void OnPlayerPlayerHealth(int currentPlayerHealth, int maxPlayerHealth)
+	{
+		GetNode<Hud>("HUD").UpdateHealth(currentPlayerHealth, maxPlayerHealth);
+	}
 }

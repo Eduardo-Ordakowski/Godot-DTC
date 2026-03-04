@@ -69,6 +69,7 @@ stream = SubResource("AudioStreamOggVorbis_7mycd")
 stream = ExtResource("5_lquwl")
 
 [connection signal="Hit" from="Player" to="." method="GameOver"]
+[connection signal="PlayerHealth" from="Player" to="." method="OnPlayerPlayerHealth"]
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]

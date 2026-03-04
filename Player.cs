@@ -2,15 +2,41 @@ using Godot;
 
 public partial class Player : Area2D
 {
+    #region Signals
+    
 	[Signal]
 	public delegate void HitEventHandler(); //Colisão do player com um inimigo
 
+	[Signal]
+	public delegate void PlayerHealthEventHandler(int currentPlayerHealth, int MaxPlayerHealth);
+
+    #endregion
+
+    #region Exports
+
+    [Export]
+	private bool _isPlayerInvincible { get; set; }
+	
+	[Export]
+	public float PlayerInvincibilityDuration { get; set; } = 1.0f;
+	
 	[Export]
 	public int Speed { get; set; } = 400; //Velocidade do player
 
-	public Vector2 ScreenSize; //O tamanho da tela do jogo
+	#endregion
 
-	public override void _Ready()
+    #region Variáveis declaradas
+
+    public Vector2 ScreenSize;    
+
+	private const int _maxPlayerHealth = 3; 
+	private int _currentPlayerHealth;
+	
+    public int MaxPlayerHealth => _maxPlayerHealth;
+	public int CurrentPlayerHealth => _currentPlayerHealth;
+    #endregion
+
+    public override void _Ready()
 	{
 		ScreenSize = GetViewportRect().Size; //Obtém o tamanho da tela do jogo
 	}
@@ -71,16 +97,52 @@ public partial class Player : Area2D
 
 	}
 	private void OnBodyEntered(Node2D body)
-	{
-		Hide();
-		EmitSignal(SignalName.Hit); //Emite o sinal de colisão do jogador com um inimigo;
-		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true); //Desativa a colisão do jogador para evitar múltiplas colisões;
+	{			
+		if(!_isPlayerInvincible)
+		{
+			_currentPlayerHealth -= 1;
+            EmitSignal(SignalName.PlayerHealth, _currentPlayerHealth, _maxPlayerHealth);
+		
+            if (_currentPlayerHealth == 0)
+			{ 
+				Hide();
+				EmitSignal(SignalName.Hit);
+				GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true); //Desativa a colisão do jogador para evitar múltiplas colisões;
+			}
+			else
+			{
+				StartInvincibility();
+			}
+		}
     }
 
-	public void Start(Vector2 position)
+	private void StartInvincibility()
+	{
+		_isPlayerInvincible = true;
+
+		var sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");	
+        Tween tween = CreateTween();
+
+		int loops = (int)(PlayerInvincibilityDuration / 0.5f);
+		
+		tween.SetLoops(loops);
+        tween.TweenProperty(sprite, "modulate", new Color(1, 0, 0, 1), 0.25f);
+		tween.TweenProperty(sprite, "modulate", new Color(1, 1, 1, 1), 0.25f);
+
+		tween.SetLoops(1);
+		tween.TweenCallback(Callable.From(EndInvincibility));
+    }
+
+	private void EndInvincibility()
+	{
+		_isPlayerInvincible = false;
+    }
+
+    public void Start(Vector2 position)
 	{
 		Position = position; //Posição inicial do jogador;
-		Show(); //Mostra o jogador na tela;
+		_currentPlayerHealth = _maxPlayerHealth; //Reseta a vida do jogador para o valor máximo;
+        Show(); //Mostra o jogador na tela;
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; //Ativa a colisão do jogador para permitir colisões com inimigos;
     }
 }

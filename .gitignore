@@ -1,3 +1,32 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+
+# Godot-specific ignores
+*.translation
+
+# Imported textures, audio, etc.
+.import/
+
+# Mono/C# specific
+.mono/
+data_*/
+mono_crash.*.json
+
+# Export templates
+*.exe
+*.pck
+*.zip
+
+# Build artifacts
+bin/
+obj/
+*.csproj.user
+
+# IDE specific
+.vs/
+.vscode/
+*.sln.DotSettings.user
+
+# OS generated files
+.DS_Store
+Thumbs.db
